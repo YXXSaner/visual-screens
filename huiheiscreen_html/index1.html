@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./static//images/windows-icon@2x.ico" />
+
+    <title>灰黑资产子图可视化平台</title>
+
+    <!-- 轮播swiper插件样式 -->
+    <link rel="stylesheet" href="./static/js/swiper/swiper.min.css" />
+    <!-- 翻牌器 -->
+    <link rel="stylesheet" href="./static/js/cubeflop/cubeflop.css" />
+
+    <!-- 补间动画包 -->
+    <link rel="stylesheet" href="./static/css/custom-animation.css" />
+
+    <!-- 重置样式 -->
+    <link rel="stylesheet" href="./static/css/reset.css" />
+
+    <!-- 当前页面样式文件 -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- jquery -->
+    <script src="./static/js/jquery.min.js"></script>
+    <!-- echarts -->
+    <script src="./static/js/echarts/echarts.min.js"></script>
+    <!-- echarts 水球图 -->
+    <script src="./static/js/echarts/echarts-liquidfill.min.js"></script>
+    <!-- echarts 词云 -->
+    <script src="./static/js/echarts/echarts-wordcloud.min.js"></script>
+    <!-- javascript工具库 -->
+    <script src="./static/js/lodash.min.js"></script>
+    <!-- 二维码插件 -->
+    <script src="./static/js/qrcode.min.js"></script>
+    <!-- 轮播插件 -->
+    <script src="./static/js/swiper/swiper.min.js"></script>
+    <!-- 表格滚动插件 -->
+    <script src="./static/js/seamscroll.min.js"></script>
+    <!-- day 日期插件 -->
+    <script src="./static/js/dayjs/dayjs.min.js"></script>
+    <script src="./static/js/dayjs/zh-cn.js"></script>
+    <!-- 工具类 -->
+    <script src="./static/js/utils.js"></script>
+    <!-- 滚动数字所需要的插件 -->
+    <script src="./static/js/jquery.countTo.js"></script>
+    <!-- 翻牌器 -->
+    <script src="./static/js/cubeflop/cubeflop.js"></script>
+    <!-- d3 -->
+    <script src="./static/js/d3.js"></script>
+
+    <!-- 感谢使用微兔可视化，目前处于内测阶段，存在很多的不足开发人员在不断完善中，请谅解~ -->
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- 组件d1183591-14cb-4558-88dc-aa25c37f93fb开始-->
+
+      <div id="itemd1183591-14cb-4558-88dc-aa25c37f93fb"></div>
+
+      <script type="text/javascript">
+        $(function() {
+          // 基于准备好的dom，初始化echarts实例
+          const myChart = echarts.init(document.getElementById("itemd1183591-14cb-4558-88dc-aa25c37f93fb"));
+          // 指定图表的配置项
+          let option = {"grid":{"top":15,"left":15,"right":15,"bottom":15,"containLabel":true},"angleAxis":{"max":100,"clockwise":true,"show":false,"startAngle":0},"radiusAxis":{"type":"category","show":false},"polar":{"center":["50%","50%"],"radius":["100%","70%"]},"series":[{"stack":"ring","type":"bar","data":[0.01],"useSeriesStyle":false,"showBackground":false,"coordinateSystem":"polar","roundCap":true,"barWidth":4,"itemStyle":{"color":"#3D9CFF","borderColor":"#3D9CFF","borderWidth":6},"z":10},{"stack":"ring","type":"bar","data":[50],"useSeriesStyle":false,"coordinateSystem":"polar","roundCap":true,"barWidth":4,"itemStyle":{"color":"#224973","borderColor":"#224973","borderWidth":0},"silent":true}]};
+          let seriesStyle = {"color":[{"type":"linear","x":0,"y":1,"x2":1,"y2":1,"colorStops":[{"offset":0,"color":"#3D9CFF"},{"offset":1,"color":"#43E8F3"}],"globalCoord":false}],"outline":{"show":true,"borderDistance":8,"itemStyle":{"color":"transparent","borderColor":"rgba(0,0,0,0)","borderWidth":0,"shadowBlur":20,"shadowColor":"rgba(0, 0, 0, 0.25)","borderType":"solid"}},"itemStyle":{"color":{"type":"linear","x":0,"y":0,"x2":1,"y2":0,"colorStops":[{"offset":0,"color":"#3c9dfe"},{"offset":1,"color":"#42e4f3"}],"global":false},"opacity":0.95,"shadowBlur":50,"shadowColor":"rgba(0, 0, 0, 0.4)"},"label":{"show":true,"color":"#ffffff","fontSize":35,"lineHeight":40},"radius":"70%","center":["50%","50%"],"backgroundStyle":{"color":"rgba(241, 248, 255, 0.1)","borderColor":"rgba(0,0,0,0)","borderWidth":0,"shadowBlur":10,"shadowColor":"rgba(73,97,218,1)","opacity":1}};
+
+          // 指定图表的数据
+          let data = [{"value":0.5,"name":"占比"}]
+
+          data = data.map(item =>{
+            return{value: item['value'], name: item['name']}
+          })
+          //数据处理 开始
+          let seriesObj = [
+              {
+                type: "liquidFill",
+                ...seriesStyle,
+                data: [
+                  {
+                    value: data[0].value,
+                    itemStyle: {
+                      opacity: 1,
+                    }
+                  },
+                  {
+                    value: data[0].value,
+                    itemStyle: {
+                      opacity: 0.5,
+                    }
+                  }
+                ]
+              }
+            ]
+            let series = seriesObj.concat(option.series)
+          // 数据处理完
+          option.series = series
+
+          // 使用刚指定的配置项和数据显示图表。
+          myChart.setOption(option);
+        })
+      </script>
+
+      <!-- 组件d1183591-14cb-4558-88dc-aa25c37f93fb结束-->
+
+      <!-- 组件9a44a8cc-2849-4f87-b7e6-d2065c0a21c8开始-->
+
+      <div id="item9a44a8cc-2849-4f87-b7e6-d2065c0a21c8"></div>
+
+      <script type="text/javascript">
+        $(function() {
+          // 基于准备好的dom，初始化echarts实例
+          const myChart = echarts.init(document.getElementById("item9a44a8cc-2849-4f87-b7e6-d2065c0a21c8"));
+          // 指定图表的配置项
+          let option = {"grid":{"top":15,"left":15,"right":15,"bottom":15,"containLabel":true},"legend":null,"yAxis":null,"color":["#3D9Cff","#22D1DD"],"series":[]};
+          let seriesStyle = {"itemStyle":{"borderColor":"#22D1DD","borderWidth":0,"borderType":"dotted","borderCap":"square","shadowBlur":0,"shadowColor":"#22D1DD","shadowOffsetX":0,"shadowOffsetY":0,"borderRadius":0,"opacity":1},"lineStyle":{"color":"#5cdbc3","width":1,"type":"solid","opacity":0.5},"symbolSize":30,"focusNodeAdjacency":true,"roam":false,"label":{"show":true,"color":"#ffffff","fontSize":8,"position":"inside"},"force":{"repulsion":200},"layout":"force"};
+          // 指定图表的数据
+          let data = [{"categories":[{"name":"1"},{"name":"2"}],"data":[{"name":"节点0","draggable":true},{"name":"节点1","category":1,"draggable":true},{"name":"节点2","category":1,"draggable":true},{"name":"节点3","category":1,"draggable":true},{"name":"节点4","category":1,"draggable":true},{"name":"节点5","category":1,"draggable":true},{"name":"节点6","category":1,"draggable":true},{"name":"节点7","category":1,"draggable":true},{"name":"节点8","category":1,"draggable":true},{"name":"节点9","category":1,"draggable":true},{"name":"节点10","category":1,"draggable":true},{"name":"节点11","category":1,"draggable":true},{"name":"节点12","category":1,"draggable":true}],"links":[{"source":0,"target":1,"category":0,"value":"0-1"},{"source":0,"target":2,"value":"0-2"},{"source":0,"target":3,"value":"0-3"},{"source":0,"target":4,"value":"0-4"},{"source":1,"target":2,"value":"1-2"},{"source":0,"target":5,"value":"0-5"},{"source":4,"target":5,"value":"4-5"},{"source":2,"target":8,"value":"2-8"},{"source":0,"target":12,"value":"0-12"},{"source":6,"target":11,"value":"6-11"},{"source":6,"target":3,"value":"6-3"},{"source":7,"target":5,"value":"7-5"},{"source":9,"target":10,"value":"9-10"},{"source":3,"target":10,"value":"3-10"},{"source":2,"target":11,"value":"2-11"}]}]
+
+          //数据处理 开始
+          let series = []
+          let { data:dataSeries, categories, links } = data[0];
+            series.push({
+                type: "graph",
+                links: links,
+                data: dataSeries,
+                categories: categories,
+                ...seriesStyle
+            });
+          // 数据处理完
+          option.series = series
+
+          // 使用刚指定的配置项和数据显示图表。
+          myChart.setOption(option);
+        })
+      </script>
+
+      <!-- 组件9a44a8cc-2849-4f87-b7e6-d2065c0a21c8结束-->
+
+      <!-- 组件6f3641a0-6cc0-49f8-931a-c2a65acc361d开始-->
+
+      <div id="item6f3641a0-6cc0-49f8-931a-c2a65acc361d"></div>
+
+      <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        $(function() {
+          const myChart = echarts.init(document.getElementById("item6f3641a0-6cc0-49f8-931a-c2a65acc361d"));
+        // 指定图表的配置项
+        let option = {"grid":{"top":35,"left":15,"right":15,"bottom":15,"containLabel":true},"tooltip":{"show":false,"trigger":"axis","animation":true,"alwaysShowContent":false,"triggerOn":"mousemove","confine":false,"borderColor":"#333","borderWidth":2,"padding":10,"backgroundColor":"rgba(50,50,50,0.7)","axisPointer":{"type":"line","lineStyle":{"color":"#555","width":1,"type":"dashed","cap":"butt","opacity":1},"crossStyle":{"color":"#555","width":1,"type":"dashed","cap":"butt","opacity":1},"shadowStyle":{"color":"rgba(150,150,150,0.3)","opacity":1}},"textStyle":{"color":"#fff","fontWeight":"normal","fontSize":14}},"title":{"text":"平滑折线面积图","show":false,"link":"http://weitu.yunzhisec.com","target":"blank","textStyle":{"color":"#fff","fontStyle":"normal","fontWeight":"normal","fontSize":14,"lineHeight":30,"textBorderColor":"","textBorderWidth":0,"textBorderType":"solid","textBorderDashOffset":0,"textShadowColor":"transparent","textShadowBlur":0,"textShadowOffsetX":0,"textShadowOffsetY":0,"overflow":"none"},"padding":0,"itemGap":10,"z":10,"left":"auto","top":"auto","right":"auto","bottom":"auto","backgroundColor":"transparent","borderColor":"","borderWidth":"","borderRadius":0,"shadowBlur":0,"shadowColor":"","shadowOffsetX":"","shadowOffsetY":"","subtext":"","sublink":"","subtarget":"blank","subtextStyle":{"color":"#ffffff","fontStyle":"normal","fontWeight":"normal","fontSize":12,"lineHeight":0,"textBorderColor":"","textBorderWidth":0,"textBorderType":"solid","textBorderDashOffset":0,"textShadowColor":"transparent","textShadowBlur":0,"textShadowOffsetX":0,"textShadowOffsetY":0,"overflow":"none"}},"legend":{"show":true,"top":10,"left":"center","orient":"horizontal","itemWidth":16,"itemHeight":2,"itemGap":10,"icon":"roundRect","textStyle":{"color":"#ffffff","fontSize":12}},"xAxis":{"show":true,"axisLabel":{"show":true,"color":"rgba(241, 248, 255, 0.7)","fontSize":12,"margin":8},"axisLine":{"show":false,"lineStyle":{"color":"rgba(241, 248, 255, 0.1)","type":"solid","width":1}},"axisTick":{"show":false,"lineStyle":{"color":"#01FCE3","type":"solid","width":1}},"splitLine":{"show":false,"lineStyle":{"color":"#cccccc","type":"solid","width":1}},"smooth":false,"data":["8:00","10:00","12:00","14:00","16:00","18:00"],"type":"category"},"yAxis":{"show":true,"axisLabel":{"show":true,"color":"rgba(241, 248, 255, 0.7)","fontSize":12,"margin":8},"axisLine":{"show":false,"lineStyle":{"color":"#01FCE3","type":"solid","width":1}},"axisTick":{"show":false,"lineStyle":{"color":"#01FCE3","type":"solid","width":1}},"splitLine":{"show":true,"lineStyle":{"color":"rgba(241, 248, 255, 0.1)","type":"dashed","width":1}},"type":"value"},"color":[{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"#5158FA"},{"offset":0.82,"color":"#5158FA19"}]},{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"#43E8F3"},{"offset":0.82,"color":"#43E8F319"}]},{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"#3D9CFF"},{"offset":0.82,"color":"#3D9CFF19"}]},"#5158FA","#43E8F3","#3D9CFF"],"series":[]};
+        let seriesStyle = {"label":{"show":false,"position":"top","color":"#FFFFFF","fontSize":12,"offset":[0,0]},"areaStyle":{"opacity":0.5,"shadowBlur":0,"shadowColor":"#85a5ff","shadowOffsetX":0,"shadowOffsetY":0},"showSymbol":false,"symbol":"circle","symbolSize":20,"symbolOffset":[0,0],"step":false,"lineStyle":{"opacity":1,"type":"line","width":4,"shadowBlur":0,"shadowOffsetX":0,"shadowOffsetY":0},"smooth":true};
+        // 指定图表的数据
+        let data = [{"time":"8:00","value":370,"name":"系列一"},{"time":"10:00","value":200,"name":"系列一"},{"time":"12:00","value":270,"name":"系列一"},{"time":"14:00","value":315,"name":"系列一"},{"time":"16:00","value":415,"name":"系列一"},{"time":"18:00","value":290,"name":"系列一"},{"time":"8:00","value":280,"name":"系列二"},{"time":"10:00","value":110,"name":"系列二"},{"time":"12:00","value":197,"name":"系列二"},{"time":"14:00","value":215,"name":"系列二"},{"time":"16:00","value":177,"name":"系列二"},{"time":"18:00","value":410,"name":"系列二"},{"time":"8:00","value":202,"name":"系列三"},{"time":"10:00","value":285,"name":"系列三"},{"time":"12:00","value":200,"name":"系列三"},{"time":"14:00","value":115,"name":"系列三"},{"time":"16:00","value":202,"name":"系列三"},{"time":"18:00","value":320,"name":"系列三"}]
+
+        //映射
+        data = data.map(item =>{
+          return{value: item['value'], time: item['time'], name: item['name']}
+        })
+        let sKey = "name";
+        let xKey = "time";
+        let yKey = "value";
+        let seriesArr = data.map(item => item[sKey])
+        seriesArr = [...new Set(seriesArr)]
+        option.series = []
+        seriesArr.forEach((item, index) => {
+          const datas = data.filter(oitem => oitem[sKey] === item).map(_item => {
+            return { name: _item[xKey], value: _item[yKey]}
+          })
+          option.series.push({
+            name: item,
+            data: datas,
+            type: "line",
+            ...seriesStyle
+          })
+        })
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        })
+      </script>
+
+      <!-- 组件6f3641a0-6cc0-49f8-931a-c2a65acc361d结束-->
+
+      <!-- 组件0871be6b-0309-4ff8-8a96-012357a7fc8e开始-->
+
+      <div id="item0871be6b-0309-4ff8-8a96-012357a7fc8e"></div>
+
+      <script type="text/javascript">
+        $(function () {
+            /**
+             * 处理数据 | 返回 series xAxis
+             * 1.拿到需要的对象
+             * 2.给对象添加相应的数据
+             * 3.初始化series
+             * 4.返回series xAxis
+             */
+            function handlerData(data) {
+
+                const option = deepCopy({"grid":{"top":35,"left":15,"right":15,"bottom":15,"containLabel":true},"tooltip":{"show":false,"trigger":"item","animation":true,"alwaysShowContent":false,"triggerOn":"mousemove","confine":false,"borderColor":"#333","borderWidth":2,"padding":10,"backgroundColor":"rgba(50,50,50,0.7)","axisPointer":{"type":"line","lineStyle":{"color":"#555","width":1,"type":"dashed","cap":"butt","opacity":1},"crossStyle":{"color":"#555","width":1,"type":"dashed","cap":"butt","opacity":1},"shadowStyle":{"color":"rgba(150,150,150,0.3)","opacity":1}},"textStyle":{"color":"#fff","fontWeight":"normal","fontSize":14},"formatter":null},"title":{"text":"","show":false,"link":"http://weitu.yunzhisec.com","target":"blank","textStyle":{"color":"#fff","fontStyle":"normal","fontWeight":"normal","fontSize":14,"lineHeight":30,"textBorderColor":"","textBorderWidth":0,"textBorderType":"solid","textBorderDashOffset":0,"textShadowColor":"transparent","textShadowBlur":0,"textShadowOffsetX":0,"textShadowOffsetY":0,"overflow":"none"},"padding":0,"itemGap":10,"z":10,"left":"auto","top":"auto","right":"auto","bottom":"auto","backgroundColor":"transparent","borderColor":"","borderWidth":"","borderRadius":0,"shadowBlur":0,"shadowColor":"","shadowOffsetX":"","shadowOffsetY":"","subtext":"","sublink":"","subtarget":"blank","subtextStyle":{"color":"#ffffff","fontStyle":"normal","fontWeight":"normal","fontSize":12,"lineHeight":0,"textBorderColor":"","textBorderWidth":0,"textBorderType":"solid","textBorderDashOffset":0,"textShadowColor":"transparent","textShadowBlur":0,"textShadowOffsetX":0,"textShadowOffsetY":0,"overflow":"none"}},"color":["rgba(114,182,255,1)","rgba(79,164,255,1)",{"x":0,"y":0,"x2":0,"y2":1,"type":"linear","global":false,"colorStops":[{"offset":0,"color":"rgba(61, 156, 255, 0.9)"},{"offset":1,"color":"rgba(61, 156, 255, 0)"}]}],"legend":{"show":false,"top":"top","left":"center","orient":"horizontal","itemWidth":8,"itemHeight":8,"itemGap":10,"icon":"rect","textStyle":{"color":"#ffffff","fontSize":12,"lineHeight":14}},"xAxis":{"type":"category","data":[],"axisLine":{"show":false,"lineStyle":{"color":"white"}},"offset":20,"splitLine":{"show":false,"lineStyle":{"color":"#181919","type":"dashed","width":1}},"axisTick":{"show":false,"lineStyle":{"color":"#181919","type":"solid","width":1}},"axisLabel":{"show":true,"color":"#ffffff","fontSize":20,"margin":8}},"yAxis":{"show":true,"type":"value","axisLabel":{"show":true,"color":"rgba(241, 248, 255, 0.7)","fontSize":18,"margin":8},"axisLine":{"show":false,"lineStyle":{"color":"#01FCE3","type":"solid","width":1}},"axisTick":{"show":false,"lineStyle":{"color":"#01FCE3","type":"solid","width":1}},"splitLine":{"show":false,"lineStyle":{"color":"rgba(241, 248, 255, 0.1)","type":"dashed","width":1}}}});
+                const xAxis = deepCopy({"type":"category","data":[],"axisLine":{"show":false,"lineStyle":{"color":"white"}},"offset":20,"splitLine":{"show":false,"lineStyle":{"color":"#181919","type":"dashed","width":1}},"axisTick":{"show":false,"lineStyle":{"color":"#181919","type":"solid","width":1}},"axisLabel":{"show":true,"color":"#ffffff","fontSize":20,"margin":8}});
+                const seriesStyle = deepCopy({"type":"pictorialBar","symbolSize":[40,10],"symbolOffset":[0,-6],"symbolPosition":"end","z":12,"label":{"show":true,"position":"top","fontSize":22,"fontWeight":"bold","color":"rgba(61, 156, 255, 1)"},"itemStyle":{"shadowBlur":0,"shadowColor":"#5c1717","shadowOffsetX":0,"shadowOffsetY":0,"borderRadius":0,"borderColor":"#292929","borderWidth":0,"borderType":"dotted"},"data":[]});
+                const seriesStyle2 = deepCopy({"name":"","type":"pictorialBar","symbolSize":[40,10],"symbolOffset":[0,7],"z":12,"data":[]});
+                const seriesStyle3 = deepCopy({"name":"","type":"pictorialBar","symbolOffset":[0,12],"z":10,"itemStyle":{"color":"transparent","shadowBlur":0,"shadowColor":"transparent","shadowOffsetX":0,"shadowOffsetY":0,"borderRadius":[0,0,0,0],"borderColor":"#2EA9E5","borderWidth":1,"borderType":"solid"},"data":[]});
+                const seriesStyle4 = deepCopy({"name":"","type":"pictorialBar","symbolSize":[70,20],"symbolOffset":[0,18],"z":10,"itemStyle":{"shadowBlur":0,"shadowColor":"transparent","shadowOffsetX":0,"shadowOffsetY":0,"borderRadius":[0,0,0,0],"color":"transparent","borderColor":"#19465D","borderType":"solid","borderWidth":2},"data":[]});
+                const seriesStyle5 = deepCopy({"type":"bar","barWidth":"40","barGap":"10%","barCateGoryGap":"10%","itemStyle":{"shadowBlur":0,"shadowColor":"transparent","shadowOffsetX":0,"shadowOffsetY":0,"borderRadius":[0,0,0,0],"borderColor":"#19465D","borderType":"solid","borderWidth":0,"opacity":1},"data":[]});
+
+                let yData = [];
+                const series = [];
+
+                data.forEach(item => {
+                    yData.push(item['value']);
+                    xAxis.data.push(item['name']);
+                })
+
+                seriesStyle.data = yData
+                seriesStyle2.data = yData
+                seriesStyle3.data = yData
+                seriesStyle4.data = yData.map(item => item = 1)
+                seriesStyle5.data = yData
+
+                series.push(seriesStyle,seriesStyle2,seriesStyle3,seriesStyle4,seriesStyle5);
+                return { series, xAxis };
+            }
+            /**
+             * 合并Option
+             */
+            function mergeOption(series, xAxis) {
+                const component = {"id":"e1ffcece-c516-4d34-bdf7-1160a8c9f049","name":"立体渐变柱状图","version":"v1.0.0","alias":"StereoHistogram","thumbnail":"images/widgets/chart/bar/StereoHistogram.png","width":700,"height":400,"pnode":{"type":"bar","pnode":{"type":"chart"}},"option":{"grid":{"top":35,"left":15,"right":15,"bottom":15,"containLabel":true},"tooltip":{"show":false,"trigger":"item","animation":true,"alwaysShowContent":false,"triggerOn":"mousemove","confine":false,"borderColor":"#333","borderWidth":2,"padding":10,"backgroundColor":"rgba(50,50,50,0.7)","axisPointer":{"type":"line","lineStyle":{"color":"#555","width":1,"type":"dashed","cap":"butt","opacity":1},"crossStyle":{"color":"#555","width":1,"type":"dashed","cap":"butt","opacity":1},"shadowStyle":{"color":"rgba(150,150,150,0.3)","opacity":1}},"textStyle":{"color":"#fff","fontWeight":"normal","fontSize":14},"formatter":null},"title":{"text":"","show":false,"link":"http://weitu.yunzhisec.com","target":"blank","textStyle":{"color":"#fff","fontStyle":"normal","fontWeight":"normal","fontSize":14,"lineHeight":30,"textBorderColor":"","textBorderWidth":0,"textBorderType":"solid","textBorderDashOffset":0,"textShadowColor":"transparent","textShadowBlur":0,"textShadowOffsetX":0,"textShadowOffsetY":0,"overflow":"none"},"padding":0,"itemGap":10,"z":10,"left":"auto","top":"auto","right":"auto","bottom":"auto","backgroundColor":"transparent","borderColor":"","borderWidth":"","borderRadius":0,"shadowBlur":0,"shadowColor":"","shadowOffsetX":"","shadowOffsetY":"","subtext":"","sublink":"","subtarget":"blank","subtextStyle":{"color":"#ffffff","fontStyle":"normal","fontWeight":"normal","fontSize":12,"lineHeight":0,"textBorderColor":"","textBorderWidth":0,"textBorderType":"solid","textBorderDashOffset":0,"textShadowColor":"transparent","textShadowBlur":0,"textShadowOffsetX":0,"textShadowOffsetY":0,"overflow":"none"}},"color":["rgba(114,182,255,1)","rgba(79,164,255,1)",{"x":0,"y":0,"x2":0,"y2":1,"type":"linear","global":false,"colorStops":[{"offset":0,"color":"rgba(61, 156, 255, 0.9)"},{"offset":1,"color":"rgba(61, 156, 255, 0)"}]}],"legend":{"show":false,"top":"top","left":"center","orient":"horizontal","itemWidth":8,"itemHeight":8,"itemGap":10,"icon":"rect","textStyle":{"color":"#ffffff","fontSize":12,"lineHeight":14}},"xAxis":{"type":"category","data":[],"axisLine":{"show":false,"lineStyle":{"color":"white"}},"offset":20,"splitLine":{"show":false,"lineStyle":{"color":"#181919","type":"dashed","width":1}},"axisTick":{"show":false,"lineStyle":{"color":"#181919","type":"solid","width":1}},"axisLabel":{"show":true,"color":"#ffffff","fontSize":20,"margin":8}},"yAxis":{"show":true,"type":"value","axisLabel":{"show":true,"color":"rgba(241, 248, 255, 0.7)","fontSize":18,"margin":8},"axisLine":{"show":false,"lineStyle":{"color":"#01FCE3","type":"solid","width":1}},"axisTick":{"show":false,"lineStyle":{"color":"#01FCE3","type":"solid","width":1}},"splitLine":{"show":false,"lineStyle":{"color":"rgba(241, 248, 255, 0.1)","type":"dashed","width":1}}}},"source":[{"name":"default","source":{"type":"static","filter":{"isFilter":false,"filterId":-1},"isAutoUpdate":false,"autoUpdateTime":60,"mapping":[{"name":"name","required":true,"description":"名称","type":"string","mapping":"name"},{"name":"value","required":true,"description":"值","type":"number","mapping":"value"}],"static":[{"value":2861,"name":"AA"},{"value":4120,"name":"BB"},{"value":4765,"name":"CC"},{"value":3240,"name":"DD"},{"value":4210,"name":"EE"}],"api":{"sourcesId":-1,"requestType":"GET","requestHeader":{"token":null},"getParam":"","postParam":{},"requestUrl":"","cookie":false},"mysql":{"sourcesId":-1,"database":-1,"sql":""},"elasticsearch":{"sourcesId":-1,"query":{"index":"_all"}},"mongodb":{"sourcesId":-1,"query":{},"collection":-1},"csv":{}}}]};
+                const { option } = deepCopy(component);
+                option.series = series;
+                option.xAxis = xAxis;
+                return { option };
+            }
+
+            /**
+             * 设置option
+             * 1. 初始化echarts
+             * 2. 处理数据 | 返回：series | xAxis
+             * 3. 合并组装option
+             * 4. setOption
+             */
+            function setOption() {
+                const data = [{"value":2861,"name":"AA"},{"value":4120,"name":"BB"},{"value":4765,"name":"CC"},{"value":3240,"name":"DD"},{"value":4210,"name":"EE"}];
+                const myChart = echarts.init(document.getElementById("item0871be6b-0309-4ff8-8a96-012357a7fc8e"));
+                const { series, xAxis } = handlerData(data);
+                const { option } = mergeOption(series, xAxis);
+                // setOption
+                myChart.setOption(option);
+            }
+            setOption()
+        })
+      </script>
+
+      <!-- 组件0871be6b-0309-4ff8-8a96-012357a7fc8e结束-->
+
+      <!-- 组件90275325-7c3c-4d4c-9941-bcc0bfe78c5d开始-->
+
+      <div id="item90275325-7c3c-4d4c-9941-bcc0bfe78c5d"></div>
+
+      <script type="text/javascript">
+        $(function(){
+            /**
+             * 处理数据 | 返回 series legend
+             */
+            function handlerData(data) {
+             
+                const  {source,option} = deepCopy({"id":"a9e7189c-b966-4dfb-a570-886cfab03ee7","name":"年轮饼图","version":"v1.0.0","alias":"AnnualRingPieChart","thumbnail":"images/widgets/chart/pie/AnnualRingPieChart.png","width":500,"height":280,"pnode":{"type":"pie","pnode":{"type":"chart"}},"option":{"grid":{"top":15,"left":45,"right":15,"bottom":15,"containLabel":true},"tooltip":{"show":false,"trigger":"item","animation":true,"alwaysShowContent":false,"triggerOn":"mousemove","confine":false,"borderColor":"#333","borderWidth":2,"padding":10,"backgroundColor":"rgba(50,50,50,0.7)","axisPointer":{"type":"line","lineStyle":{"color":"#555","width":1,"type":"dashed","cap":"butt","opacity":1},"crossStyle":{"color":"#555","width":1,"type":"dashed","cap":"butt","opacity":1},"shadowStyle":{"color":"rgba(150,150,150,0.3)","opacity":1}},"textStyle":{"color":"#fff","fontWeight":"normal","fontSize":14},"formatter":null},"title":{"text":"","show":false,"link":"http://weitu.yunzhisec.com","target":"blank","textStyle":{"color":"#fff","fontStyle":"normal","fontWeight":"normal","fontSize":14,"lineHeight":30,"textBorderColor":"","textBorderWidth":0,"textBorderType":"solid","textBorderDashOffset":0,"textShadowColor":"transparent","textShadowBlur":0,"textShadowOffsetX":0,"textShadowOffsetY":0,"overflow":"none"},"padding":0,"itemGap":10,"z":10,"left":"auto","top":"auto","right":"auto","bottom":"auto","backgroundColor":"transparent","borderColor":"","borderWidth":"","borderRadius":0,"shadowBlur":0,"shadowColor":"","shadowOffsetX":"","shadowOffsetY":"","subtext":"","sublink":"","subtarget":"blank","subtextStyle":{"color":"#ffffff","fontStyle":"normal","fontWeight":"normal","fontSize":12,"lineHeight":0,"textBorderColor":"","textBorderWidth":0,"textBorderType":"solid","textBorderDashOffset":0,"textShadowColor":"transparent","textShadowBlur":0,"textShadowOffsetX":0,"textShadowOffsetY":0,"overflow":"none"}},"color":["#3D9CFF","#43E8F3","#3A725A","#B5B560","#90493C"],"graphic":{"type":"image","shape":{"x":0,"y":0,"width":0,"height":0,"cx":0,"cy":0,"r":0},"style":{"width":80,"height":80,"image":"data:image/png;base64,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","text":"","fill":"#ffffff","fontSize":20,"fontWeight":500,"stroke":"#ffffff","lineWidth":0,"shadowBlur":0,"shadowOffsetX":0,"shadowOffsetY":0,"shadowColor":"#ffffff","z":0},"left":110,"top":100},"legend":{"show":true,"orient":"vertical","left":"60%","top":"middle","icon":"circle","itemWidth":10,"itemHeight":10,"itemGap":20,"textStyle":{"fontSize":16,"color":"#fff","lineHeight":14}},"series":[],"xAxis":[{"show":false}]},"source":[{"name":"default","source":{"type":"static","filter":{"isFilter":false,"filterId":-1},"isAutoUpdate":false,"autoUpdateTime":60,"mapping":[{"name":"name","required":true,"description":"名称","type":"string","mapping":"name"},{"name":"value","required":true,"description":"值","type":"number","mapping":"value"}],"static":[{"value":967,"name":"系列一"},{"value":945,"name":"系列二"},{"value":877,"name":"系列三"},{"value":866,"name":"系列四"},{"value":785,"name":"系列五"}],"api":{"sourcesId":-1,"requestType":"GET","requestHeader":{"token":null},"getParam":"","postParam":{},"requestUrl":"","cookie":false,"postMethods":"raw"},"mysql":{"sourcesId":-1,"database":-1,"sql":""},"elasticsearch":{"sourcesId":-1,"query":{"index":"_all"}},"mongodb":{"sourcesId":-1,"query":{},"collection":-1},"csv":{}}}]});
+                const { mapping } = source.find((i) => i.name == "default").source;
+                // 获取mapping数据
+                const mappingValue = mapping.find((i) => i.name == "value");
+                const mappingName = mapping.find((i) => i.name == "name");
+                // 求和
+                let sum = 0;
+
+                const series = [];
+                const legendData = [];
+                const legend = deepCopy(option.legend);
+                data.map((item) => {
+                    sum += item.value;
+                });
+                data.forEach((item, index) => {
+                    const seriesStyle = deepCopy({"type":"pie","clockWise":false,"hoverAnimation":false,"radius":false,"center":["30%","50%"],"label":{"show":false,"fontSize":14,"lineHeight":22,"formatter":null,"color":"#ffffff","position":"outside"},"labelLine":{"show":true,"length":15,"length2":15,"lineStyle":{"width":1,"type":"solid"}},"itemStyle":{"borderWidth":0,"borderColor":"#ffffff","shadowColor":"rgba(0,0,0,0)","borderRadius":0,"shadowBlur":0,"shadowOffsetX":0,"shadowOffsetY":0,"label":{"show":false},"labelLine":{"show":false}},"data":[{"value":0,"name":""},{"value":0,"itemStyle":{"color":"rgba(0,0,0,0)"},"hoverAnimation":false}]});
+                    const seriesStyle2 = deepCopy({"type":"pie","silent":true,"z":0,"clockWise":false,"hoverAnimation":false,"radius":false,"center":["30%","50%"],"label":{"show":false},"itemStyle":{"label":{"show":false},"labelLine":{"show":false},"borderWidth":5},"data":[{"value":1,"itemStyle":{"color":"rgba(255, 255, 255,.13)","borderWidth":0},"hoverAnimation":false}]})
+
+                    const radius = [
+                    80 - index * 10 + "%",
+                    80 - (index + 1) * 5 - index * 5 + "%",
+                    ];
+
+                    legendData.push(item[mappingName.mapping]);
+                    // 设置数据内容区域
+                    seriesStyle.radius = radius;
+                    seriesStyle.data[0].value = item[mappingValue.mapping];
+                    seriesStyle.data[0].name = item[mappingName.mapping];
+                    seriesStyle.data[1].value = sum - item[mappingValue.mapping];
+                    // 设置占位区域
+                    seriesStyle2.radius = radius;
+                    series.push(seriesStyle, seriesStyle2);
+                });
+                legend.data = legendData;
+                return { series, legend };
+            }
+            /**
+             * 合并Option
+             */
+            function mergeOption(series, legend) {
+                const { option } = deepCopy({"id":"a9e7189c-b966-4dfb-a570-886cfab03ee7","name":"年轮饼图","version":"v1.0.0","alias":"AnnualRingPieChart","thumbnail":"images/widgets/chart/pie/AnnualRingPieChart.png","width":500,"height":280,"pnode":{"type":"pie","pnode":{"type":"chart"}},"option":{"grid":{"top":15,"left":45,"right":15,"bottom":15,"containLabel":true},"tooltip":{"show":false,"trigger":"item","animation":true,"alwaysShowContent":false,"triggerOn":"mousemove","confine":false,"borderColor":"#333","borderWidth":2,"padding":10,"backgroundColor":"rgba(50,50,50,0.7)","axisPointer":{"type":"line","lineStyle":{"color":"#555","width":1,"type":"dashed","cap":"butt","opacity":1},"crossStyle":{"color":"#555","width":1,"type":"dashed","cap":"butt","opacity":1},"shadowStyle":{"color":"rgba(150,150,150,0.3)","opacity":1}},"textStyle":{"color":"#fff","fontWeight":"normal","fontSize":14},"formatter":null},"title":{"text":"","show":false,"link":"http://weitu.yunzhisec.com","target":"blank","textStyle":{"color":"#fff","fontStyle":"normal","fontWeight":"normal","fontSize":14,"lineHeight":30,"textBorderColor":"","textBorderWidth":0,"textBorderType":"solid","textBorderDashOffset":0,"textShadowColor":"transparent","textShadowBlur":0,"textShadowOffsetX":0,"textShadowOffsetY":0,"overflow":"none"},"padding":0,"itemGap":10,"z":10,"left":"auto","top":"auto","right":"auto","bottom":"auto","backgroundColor":"transparent","borderColor":"","borderWidth":"","borderRadius":0,"shadowBlur":0,"shadowColor":"","shadowOffsetX":"","shadowOffsetY":"","subtext":"","sublink":"","subtarget":"blank","subtextStyle":{"color":"#ffffff","fontStyle":"normal","fontWeight":"normal","fontSize":12,"lineHeight":0,"textBorderColor":"","textBorderWidth":0,"textBorderType":"solid","textBorderDashOffset":0,"textShadowColor":"transparent","textShadowBlur":0,"textShadowOffsetX":0,"textShadowOffsetY":0,"overflow":"none"}},"color":["#3D9CFF","#43E8F3","#3A725A","#B5B560","#90493C"],"graphic":{"type":"image","shape":{"x":0,"y":0,"width":0,"height":0,"cx":0,"cy":0,"r":0},"style":{"width":80,"height":80,"image":"data:image/png;base64,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","text":"","fill":"#ffffff","fontSize":20,"fontWeight":500,"stroke":"#ffffff","lineWidth":0,"shadowBlur":0,"shadowOffsetX":0,"shadowOffsetY":0,"shadowColor":"#ffffff","z":0},"left":110,"top":100},"legend":{"show":true,"orient":"vertical","left":"60%","top":"middle","icon":"circle","itemWidth":10,"itemHeight":10,"itemGap":20,"textStyle":{"fontSize":16,"color":"#fff","lineHeight":14}},"series":[],"xAxis":[{"show":false}]},"source":[{"name":"default","source":{"type":"static","filter":{"isFilter":false,"filterId":-1},"isAutoUpdate":false,"autoUpdateTime":60,"mapping":[{"name":"name","required":true,"description":"名称","type":"string","mapping":"name"},{"name":"value","required":true,"description":"值","type":"number","mapping":"value"}],"static":[{"value":967,"name":"系列一"},{"value":945,"name":"系列二"},{"value":877,"name":"系列三"},{"value":866,"name":"系列四"},{"value":785,"name":"系列五"}],"api":{"sourcesId":-1,"requestType":"GET","requestHeader":{"token":null},"getParam":"","postParam":{},"requestUrl":"","cookie":false,"postMethods":"raw"},"mysql":{"sourcesId":-1,"database":-1,"sql":""},"elasticsearch":{"sourcesId":-1,"query":{"index":"_all"}},"mongodb":{"sourcesId":-1,"query":{},"collection":-1},"csv":{}}}]});
+                option.series = series;
+                option.legend = legend;
+                return { option };
+            }
+            /**
+             * 设置option
+             * 1. 初始化echarts
+             * 2. 处理数据 | 返回：series | xAxis | yAxis
+             * 3. 合并组装option
+             * 4. setOption
+             */
+            function setOption() {
+                const data = [{"value":967,"name":"系列一"},{"value":945,"name":"系列二"},{"value":877,"name":"系列三"},{"value":866,"name":"系列四"},{"value":785,"name":"系列五"}];
+                const myChart = echarts.init(document.getElementById("item90275325-7c3c-4d4c-9941-bcc0bfe78c5d"));
+                const { series, legend } = handlerData(data);
+                const { option } = mergeOption(series, legend);
+
+                // setOption
+                myChart.setOption(option);
+            }
+            setOption()
+        })
+      </script>
+
+      <!-- 组件90275325-7c3c-4d4c-9941-bcc0bfe78c5d结束-->
+
+      <!-- 组件c5453ec0-db7c-11ec-806e-ddb5d2105007开始-->
+
+      <div id="itemc5453ec0-db7c-11ec-806e-ddb5d2105007">
+        <p class="">信息4</p>
+      </div>
+
+      <style>
+        #itemc5453ec0-db7c-11ec-806e-ddb5d2105007 {
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: center;
+          font-weight: bold;
+          font-style: ;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: center;
+          color: #ffffff;
+
+        }
+
+        #itemc5453ec0-db7c-11ec-806e-ddb5d2105007 .rich-text {
+          white-space: nowrap;
+          overflow: visible;
+          line-height: 1.2;
+          letter-spacing: -1px;
+          margin-top: -2px;
+        }
+      </style>
+      <!-- 组件c5453ec0-db7c-11ec-806e-ddb5d2105007结束-->
+
+      <!-- 组件a471c5b0-db7c-11ec-806e-ddb5d2105007开始-->
+
+      <div id="itema471c5b0-db7c-11ec-806e-ddb5d2105007">
+        <p class="">信息3</p>
+      </div>
+
+      <style>
+        #itema471c5b0-db7c-11ec-806e-ddb5d2105007 {
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: center;
+          font-weight: bold;
+          font-style: ;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: center;
+          color: #ffffff;
+
+        }
+
+        #itema471c5b0-db7c-11ec-806e-ddb5d2105007 .rich-text {
+          white-space: nowrap;
+          overflow: visible;
+          line-height: 1.2;
+          letter-spacing: -1px;
+          margin-top: -2px;
+        }
+      </style>
+      <!-- 组件a471c5b0-db7c-11ec-806e-ddb5d2105007结束-->
+
+      <!-- 组件ed45f24a-0337-4bbb-b7d2-7f10f3cc44aa开始-->
+
+      <div id="itemed45f24a-0337-4bbb-b7d2-7f10f3cc44aa">
+        <p class="">信息2</p>
+      </div>
+
+      <style>
+        #itemed45f24a-0337-4bbb-b7d2-7f10f3cc44aa {
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: center;
+          font-weight: bold;
+          font-style: ;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: center;
+          color: #ffffff;
+
+        }
+
+        #itemed45f24a-0337-4bbb-b7d2-7f10f3cc44aa .rich-text {
+          white-space: nowrap;
+          overflow: visible;
+          line-height: 1.2;
+          letter-spacing: -1px;
+          margin-top: -2px;
+        }
+      </style>
+      <!-- 组件ed45f24a-0337-4bbb-b7d2-7f10f3cc44aa结束-->
+
+
+
+
+
+      <!-- 分组e034b670-27d4-4ec2-8310-c8ac9a61979f开始-->
+      <div id="iteme034b670-27d4-4ec2-8310-c8ac9a61979f">
+        <!-- 组件index8开始-->
+
+        <div id="itema4bf470e-f99b-4cdf-a835-a3bb10ce73d1">
+          <a href="./index8.html">
+            <img
+            src="./static/images/da6f2305-c754-4a70-a007-cdc38a7fded8.png"
+            alt=""
+            />
+          </a>
+          
+        </div>
+        <style>
+          #itema4bf470e-f99b-4cdf-a835-a3bb10ce73d1 {
+            width: 131.5px;
+            height: 98px;
+          }
+          #itema4bf470e-f99b-4cdf-a835-a3bb10ce73d1 img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件index8结束-->
+      </div>
+      <!-- 分组e034b670-27d4-4ec2-8310-c8ac9a61979f结束-->
+
+
+
+      <!-- 分组410ed05d-ef24-4e2e-8528-0f7ee7e8ec30开始-->
+      <div id="item410ed05d-ef24-4e2e-8528-0f7ee7e8ec30">
+        <!-- 组件index7开始-->
+
+        <div id="item4e1d0f9e-5567-43f7-88af-4bf204274efb">
+          <a href="./index7.html">
+            <img
+            src="./static/images/715ac302-e5d4-4651-900d-84e893107060.png"
+            alt=""
+            />
+          </a>
+        </div>
+        <style>
+          #item4e1d0f9e-5567-43f7-88af-4bf204274efb {
+            width: 131.5px;
+            height: 98px;
+          }
+          #item4e1d0f9e-5567-43f7-88af-4bf204274efb img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件index7结束-->
+      </div>
+      <!-- 分组410ed05d-ef24-4e2e-8528-0f7ee7e8ec30结束-->
+
+
+
+
+      <!-- 分组910269a1-6c86-4f5a-b4af-ffc963769113开始-->
+      <div id="item910269a1-6c86-4f5a-b4af-ffc963769113">
+        <!-- 组件index6开始-->
+
+        <div id="item749e3b2e-5427-40ac-9cdb-c78738ff0562">
+          <a href="./index6.html">
+            <img
+            src="./static/images/1bafd9a4-07b4-4dbe-a9bb-cf0e1209637e.png"
+            alt=""
+            />
+          </a>
+        </div>
+        <style>
+          #item749e3b2e-5427-40ac-9cdb-c78738ff0562 {
+            width: 131.5px;
+            height: 98px;
+          }
+          #item749e3b2e-5427-40ac-9cdb-c78738ff0562 img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件index6结束-->
+      </div>
+      <!-- 分组910269a1-6c86-4f5a-b4af-ffc963769113结束-->
+
+
+
+
+      <!-- 分组11df3610-d6dc-42f1-9aa4-653b4ce162d8开始-->
+      <div id="item11df3610-d6dc-42f1-9aa4-653b4ce162d8">
+        <!-- 组件index5开始-->
+
+        <div id="item0ea7263b-189c-4ec9-9db2-97f22be106e0">
+          <a href="./index5.html">
+            <img
+            src="./static/images/c2424171-5242-46ef-b13b-b9d299f725fb.png"
+            alt=""
+            />
+          </a>
+          
+        </div>
+        <style>
+          #item0ea7263b-189c-4ec9-9db2-97f22be106e0 {
+            width: 131.5px;
+            height: 98px;
+          }
+          #item0ea7263b-189c-4ec9-9db2-97f22be106e0 img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件index5结束-->
+      </div>
+      <!-- 分组11df3610-d6dc-42f1-9aa4-653b4ce162d8结束-->
+
+
+
+
+      <!-- 分组260504d2-1be3-4151-900a-51a90d43aed4开始-->
+      <div id="item260504d2-1be3-4151-900a-51a90d43aed4">
+        <!-- 组件index4开始-->
+
+        <div id="item63b043c4-4ba9-42ad-ba43-305ba5ee8f0b">
+          <a href="./index4.html">
+            <img
+            src="./static/images/6c9b5368-b028-4f2f-b0a3-8089d3b66f9f.png"
+            alt=""
+            />
+          </a>
+        </div>
+        <style>
+          #item63b043c4-4ba9-42ad-ba43-305ba5ee8f0b {
+            width: 131.5px;
+            height: 98px;
+          }
+          #item63b043c4-4ba9-42ad-ba43-305ba5ee8f0b img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件index4结束-->
+      </div>
+      <!-- 分组260504d2-1be3-4151-900a-51a90d43aed4结束-->
+
+
+
+
+      <!-- 分组0f635385-1da6-4afd-b08d-03994c965769开始-->
+      <div id="item0f635385-1da6-4afd-b08d-03994c965769">
+        <!-- 组件index3开始-->
+
+        <div id="itemc1ea27ca-dd75-421a-8933-65eb90597534">
+          <a href="./index3.html">
+            <img
+            src="./static/images/f285b8de-ffd9-40cb-8381-810e05822ec2.png"
+            alt=""
+            />
+          </a> 
+        </div>
+        <style>
+          #itemc1ea27ca-dd75-421a-8933-65eb90597534 {
+            width: 131.5px;
+            height: 98px;
+          }
+          #itemc1ea27ca-dd75-421a-8933-65eb90597534 img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件index3结束-->
+      </div>
+      <!-- 分组0f635385-1da6-4afd-b08d-03994c965769结束-->
+
+
+
+
+      <!-- 分组2ba29d87-0a2a-43c5-aa10-4c1c9fccf38d开始-->
+      <div id="item2ba29d87-0a2a-43c5-aa10-4c1c9fccf38d">
+        <!-- 组件index2开始-->
+
+        <div id="itemeb030c34-0532-43b1-8e47-f7cf141579dc">
+          <a href="./index2.html">
+            <img
+            src="./static/images/709f5fe7-683e-4f10-84a6-172dc4ae138c.png"
+            alt=""
+          />
+          </a>
+        </div>
+        <style>
+          #itemeb030c34-0532-43b1-8e47-f7cf141579dc {
+            width: 131.5px;
+            height: 98px;
+          }
+          #itemeb030c34-0532-43b1-8e47-f7cf141579dc img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件index2结束-->
+      </div>
+      <!-- 分组2ba29d87-0a2a-43c5-aa10-4c1c9fccf38d结束-->
+
+
+
+
+      <!-- 分组e7c56a56-93b7-410f-87a1-e7d6a9502ad5开始-->
+      <div id="iteme7c56a56-93b7-410f-87a1-e7d6a9502ad5">
+        <!-- 组件index1开始-->
+
+        <div id="item354ffca6-139f-4e72-ae5c-28d832254689">
+          <a href="./index1.html">
+            <img
+            src="./static/images/aaab350d-3f46-4e0a-bbaa-9a7413df9156.png"
+            alt=""
+          />
+          </a>
+        </div>
+        <style>
+          #item354ffca6-139f-4e72-ae5c-28d832254689 {
+            width: 131.5px;
+            height: 98px;
+          }
+          #item354ffca6-139f-4e72-ae5c-28d832254689 img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件index1结束-->
+      </div>
+      <!-- 分组e7c56a56-93b7-410f-87a1-e7d6a9502ad5结束-->
+
+
+
+
+
+      <!-- 分组b0c9bb12-2040-47ae-9d7d-90559939e73d开始-->
+      <div id="itemb0c9bb12-2040-47ae-9d7d-90559939e73d">
+        <!-- 组件index9开始-->
+
+        <div id="item3d254ae1-8620-4aac-ab30-0aef2ce2f7af">
+          <a href="./index9.html">
+            <img
+            src="./static/images/325c88ca-bc8c-49d2-baa3-9fdd7057ded7.png"
+            alt=""
+          />
+          </a>
+        </div>
+        <style>
+          #item3d254ae1-8620-4aac-ab30-0aef2ce2f7af {
+            width: 131.5px;
+            height: 98px;
+          }
+          #item3d254ae1-8620-4aac-ab30-0aef2ce2f7af img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件index9结束-->
+      </div>
+      <!-- 分组b0c9bb12-2040-47ae-9d7d-90559939e73d结束-->
+
+
+
+
+      <!-- 分组fb323e90-3d1e-11ec-9565-d58dddd09c89开始-->
+      <div id="itemfb323e90-3d1e-11ec-9565-d58dddd09c89">
+       
+
+        <div id="itemf88061d0-3d1a-11ec-805a-19bc9337a0ea"></div>
+
+        <script type="text/javascript">
+          $(function() {
+              const dom = document.querySelector("#itemf88061d0-3d1a-11ec-805a-19bc9337a0ea");
+              const loadTime = () =>{
+                dom.innerHTML = dayjs().locale("zh-cn").format('MM月DD日 dddd');
+              }
+              loadTime()
+
+              setInterval(loadTime, 1000)
+          })
+        </script>
+        <style>
+          #itemf88061d0-3d1a-11ec-805a-19bc9337a0ea {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.77);
+
+            line-height: 60px;
+            text-align: center;
+            font-weight: normal;
+            letter-spacing: 2px;
+          }
+        </style>
+        
+
+        <!-- 组件d4891380-3d1a-11ec-805a-19bc9337a0ea开始-->
+
+        <div id="itemd4891380-3d1a-11ec-805a-19bc9337a0ea"></div>
+
+        <script type="text/javascript">
+          $(function() {
+              const dom = document.querySelector("#itemd4891380-3d1a-11ec-805a-19bc9337a0ea");
+              const loadTime = () =>{
+                dom.innerHTML = dayjs().locale("zh-cn").format('HH:mm:ss');
+              }
+              loadTime()
+
+              setInterval(loadTime, 1000)
+          })
+        </script>
+        <style>
+          #itemd4891380-3d1a-11ec-805a-19bc9337a0ea {
+            font-size: 26px;
+            color: rgba(255, 255, 255,1);
+
+            line-height: 60px;
+            text-align: center;
+            font-weight: normal;
+            letter-spacing: 2px;
+          }
+        </style>
+        <!-- 组件d4891380-3d1a-11ec-805a-19bc9337a0ea结束-->
+      </div>
+      <!-- 分组fb323e90-3d1e-11ec-9565-d58dddd09c89结束-->
+
+      <!-- 分组f053af30-3d10-11ec-ab06-5b587eb1596c开始-->
+      <div id="itemf053af30-3d10-11ec-ab06-5b587eb1596c">
+        <!-- 组件index10开始-->
+
+        <div id="itemafc1d394-1226-4d0c-b447-7e65e3b22a9c">
+          <a href="./index10.html">
+            <img
+            src="./static/images/ee9f0df3-98d1-47b2-bd83-44d221e22b49.png"
+            alt=""
+          />
+          </a>
+        </div>
+        <style>
+          #itemafc1d394-1226-4d0c-b447-7e65e3b22a9c {
+            width: 131.5px;
+            height: 98px;
+          }
+          #itemafc1d394-1226-4d0c-b447-7e65e3b22a9c img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件index10结束-->
+      </div>
+      <!-- 分组f053af30-3d10-11ec-ab06-5b587eb1596c结束-->
+
+
+
+
+      
+      <!-- 组件696fd8a9-54b2-4866-938e-a885c0b5b2b5开始-->
+
+      <div id="item696fd8a9-54b2-4866-938e-a885c0b5b2b5">
+        <img
+          src="./static/images/a02297d2-6949-43da-98d2-55a629b5d00a.png"
+          alt=""
+        />
+      </div>
+      <style>
+        #item696fd8a9-54b2-4866-938e-a885c0b5b2b5 {
+          width: 1920px;
+          height: 269px;
+        }
+        #item696fd8a9-54b2-4866-938e-a885c0b5b2b5 img {
+          width: 100%;
+          height: 100%
+        }
+      </style>
+      <!-- 组件696fd8a9-54b2-4866-938e-a885c0b5b2b5结束-->
+
+      <!-- 分组e39b65b0-3d21-11ec-9565-d58dddd09c89开始-->
+      <div id="iteme39b65b0-3d21-11ec-9565-d58dddd09c89">
+        <!-- 组件3e3b1deb-1aa2-4d9b-9e79-0eeb3e92f4c0开始-->
+
+        <div id="item3e3b1deb-1aa2-4d9b-9e79-0eeb3e92f4c0">
+          <img
+            src="./static/images/13337a01-d560-40e8-8c42-7db70c7112db.png"
+            alt=""
+          />
+        </div>
+        <style>
+          #item3e3b1deb-1aa2-4d9b-9e79-0eeb3e92f4c0 {
+            width: 961px;
+            height: 1029px;
+          }
+          #item3e3b1deb-1aa2-4d9b-9e79-0eeb3e92f4c0 img {
+            width: 100%;
+            height: 100%
+          }
+        </style>
+        <!-- 组件3e3b1deb-1aa2-4d9b-9e79-0eeb3e92f4c0结束-->
+      </div>
+      <!-- 分组e39b65b0-3d21-11ec-9565-d58dddd09c89结束-->
+
+      <!-- 组件cc06a0e0-3b7d-11ec-8c81-4d7c4fdd34de开始-->
+
+      <div id="itemcc06a0e0-3b7d-11ec-8c81-4d7c4fdd34de">
+        <p class="">信息1</p>
+      </div>
+
+      <style>
+        #itemcc06a0e0-3b7d-11ec-8c81-4d7c4fdd34de {
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: center;
+          font-weight: bold;
+          font-style: ;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: center;
+          color: #ffffff;
+
+        }
+
+        #itemcc06a0e0-3b7d-11ec-8c81-4d7c4fdd34de .rich-text {
+          white-space: nowrap;
+          overflow: visible;
+          line-height: 1.2;
+          letter-spacing: -1px;
+          margin-top: -2px;
+        }
+      </style>
+      <!-- 组件cc06a0e0-3b7d-11ec-8c81-4d7c4fdd34de结束-->
+
+      <!-- 组件bf41d333-7af8-41b0-987a-d484cc7b0b19开始-->
+
+      <div id="itembf41d333-7af8-41b0-987a-d484cc7b0b19">
+        <img
+          src="./static/images/730481a9-1df9-45a1-8570-af4adb4eb908.png"
+          alt=""
+        />
+      </div>
+      <style>
+        #itembf41d333-7af8-41b0-987a-d484cc7b0b19 {
+          width: 380px;
+          height: 39px;
+        }
+        #itembf41d333-7af8-41b0-987a-d484cc7b0b19 img {
+          width: 100%;
+          height: 100%
+        }
+      </style>
+      <!-- 组件bf41d333-7af8-41b0-987a-d484cc7b0b19结束-->
+
+      <!-- 组件0ad4af56-4b52-42d2-a412-106fac210dad开始-->
+
+      <div id="item0ad4af56-4b52-42d2-a412-106fac210dad">
+        <img
+          src="./static/images/d6ed5722-2b2a-488d-a62a-b4276f06376f.png"
+          alt=""
+        />
+      </div>
+      <style>
+        #item0ad4af56-4b52-42d2-a412-106fac210dad {
+          width: 380px;
+          height: 39px;
+        }
+        #item0ad4af56-4b52-42d2-a412-106fac210dad img {
+          width: 100%;
+          height: 100%
+        }
+      </style>
+      <!-- 组件0ad4af56-4b52-42d2-a412-106fac210dad结束-->
+
+      <!-- 组件808f16d8-c686-4022-969c-c19c102eabbf开始-->
+
+      <div id="item808f16d8-c686-4022-969c-c19c102eabbf">
+        <img
+          src="./static/images/15044cb4-7b1a-473f-bfab-018b4d8f9822.png"
+          alt=""
+        />
+      </div>
+      <style>
+        #item808f16d8-c686-4022-969c-c19c102eabbf {
+          width: 464.62px;
+          height: 832.71px;
+        }
+        #item808f16d8-c686-4022-969c-c19c102eabbf img {
+          width: 100%;
+          height: 100%
+        }
+      </style>
+      <!-- 组件808f16d8-c686-4022-969c-c19c102eabbf结束-->
+
+      <!-- 组件dab2f916-b079-457a-aca2-5d0d77021c94开始-->
+
+      <div id="itemdab2f916-b079-457a-aca2-5d0d77021c94">
+        <img
+          src="./static/images/f5d476c0-a545-4bad-bf43-108886dbff72.png"
+          alt=""
+        />
+      </div>
+      <style>
+        #itemdab2f916-b079-457a-aca2-5d0d77021c94 {
+          width: 447.44px;
+          height: 35px;
+        }
+        #itemdab2f916-b079-457a-aca2-5d0d77021c94 img {
+          width: 100%;
+          height: 100%
+        }
+      </style>
+      <!-- 组件dab2f916-b079-457a-aca2-5d0d77021c94结束-->
+
+      <!-- 组件915a0074-5069-4ec5-ad35-8407ac995fcd开始-->
+
+      <div id="item915a0074-5069-4ec5-ad35-8407ac995fcd">
+        <img
+          src="./static/images/93b9064f-0f5d-42a7-b551-b2eeed00be37.png"
+          alt=""
+        />
+      </div>
+      <style>
+        #item915a0074-5069-4ec5-ad35-8407ac995fcd {
+          width: 443px;
+          height: 35px;
+        }
+        #item915a0074-5069-4ec5-ad35-8407ac995fcd img {
+          width: 100%;
+          height: 100%
+        }
+      </style>
+      <!-- 组件915a0074-5069-4ec5-ad35-8407ac995fcd结束-->
+
+      <!-- 组件ec8b5ded-9743-4aa8-a8e8-1a121ca33055开始-->
+
+      <div id="itemec8b5ded-9743-4aa8-a8e8-1a121ca33055">
+        <img
+          src="./static/images/5b4759db-4218-425f-a95f-c4866eeb9fe3.png"
+          alt=""
+        />
+      </div>
+      <style>
+        #itemec8b5ded-9743-4aa8-a8e8-1a121ca33055 {
+          width: 463.67px;
+          height: 824.14px;
+        }
+        #itemec8b5ded-9743-4aa8-a8e8-1a121ca33055 img {
+          width: 100%;
+          height: 100%
+        }
+      </style>
+      <!-- 组件ec8b5ded-9743-4aa8-a8e8-1a121ca33055结束-->
+
+      <!-- 组件09382cf0-3b7d-11ec-8c81-4d7c4fdd34de开始-->
+
+      <div id="item09382cf0-3b7d-11ec-8c81-4d7c4fdd34de">
+        <h1>灰黑资产可视化（子图一）</h1>
+      </div>
+
+      <style>
+        #item09382cf0-3b7d-11ec-8c81-4d7c4fdd34de {
+          color: #ffffff;
+          display: flex;
+          text-align: center;
+          line-height: 1;
+          font-style: ;
+          justify-content: center;
+          align-items: center;
+
+        }
+      </style>
+
+      <!-- 组件09382cf0-3b7d-11ec-8c81-4d7c4fdd34de结束-->
+
+      <!-- 组件38914a09-397d-4461-a13a-4e0f140d5513开始-->
+
+      <div id="item38914a09-397d-4461-a13a-4e0f140d5513">
+        <img
+          src="./static/images/16ca5a17-bd5b-429a-8424-d0927cc5051d.png"
+          alt=""
+        />
+      </div>
+      <style>
+        #item38914a09-397d-4461-a13a-4e0f140d5513 {
+          width: 1916px;
+          height: 101px;
+        }
+        #item38914a09-397d-4461-a13a-4e0f140d5513 img {
+          width: 100%;
+          height: 100%
+        }
+      </style>
+      <!-- 组件38914a09-397d-4461-a13a-4e0f140d5513结束-->
+    </div>
+  </body>
+  <script>
+
+
+
+
+
+
+      $(function () {
+
+
+            /**
+             *
+             * 自适应宽度处理
+             * 通过当前网页具体宽高 / 设计稿画板实际宽高 得到比例最终缩放页面
+             *
+             * 如果是同比例，比如12:9的尺寸比例，不管分辨率多大，都是能完全适应且不会被拉伸
+             * 如果不是在同一比例，简单来就像图片改变了比例就会被拉升
+             *
+             * 具体大小可自行设置，下面这句话也可以不要，修改style.css样式也可以，方法很多
+             *
+             */
+
+
+
+
+
+              document.getElementsByClassName("container")[0].style.transform = `scaleX(${window.innerWidth / 1920}) scaleY(${window.innerHeight / 1080})`
+
+
+
+
+
+            /**
+             *
+             * 窗口发生改变自动刷新页面
+             * 这样做不太友好，一般做法当前页面大小发生改变去重新加载echarts对象
+             * 最好自行修改一下，当然。不要也可以，不会影响功能使用
+             *
+             */
+            $(window).resize(() => location.reload())
+
+      })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          playAnimation('#itemfb323e90-3d1e-11ec-9565-d58dddd09c89', [{"type":"fadeIn","name":"淡入","delayed":0.5,"loop":false,"frequency":1,"duration":2,"isPlayer":false,"isDisabled":false}])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          playAnimation('#iteme39b65b0-3d21-11ec-9565-d58dddd09c89', [{"type":"bounceInDown","name":"向下弹入","delayed":0.3,"loop":false,"frequency":1,"duration":1.5,"isPlayer":false,"isDisabled":false}])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     *
+     * @param {*} id
+     * @param {*} animations
+     * 执行动画库函数【不用修改,可自行调整位置】
+     * 声明初始值
+     * 判断动画是否结束
+     */
+    function playAnimation(id, animations){
+
+      let index = 0
+      let ele  = document.querySelector(id)
+      setAnimation(ele,animations[index])
+      ele.addEventListener('webkitAnimationEnd', function(){
+        if(index < animations.length - 1){
+          index ++
+          setAnimation(ele,animations[index])
+        }
+      })
+    }
+
+    /**
+     *
+     * @param {*} element
+     * @param {*} animation
+     * 执行动画库函数【不用修改,可自行调整位置】
+     * 取index对应的动画
+     * 给元素animation重新赋值
+     */
+    function setAnimation(element,animation) {
+      const action = `${animation.duration * 1000}ms ease ${animation.delayed * 1000}ms ${animation.loop ? "infinite" : animation.frequency} normal both running ${animation.type}`
+      element.style.animation = action
+    }
+  </script>
+</html>
